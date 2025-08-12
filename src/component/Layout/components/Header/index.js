@@ -12,8 +12,6 @@ import {
     faLanguage,
     faMagnifyingGlass,
     faSpinner,
-    faCloudUploadAlt,
-    faU,
     faUser,
     faCoins,
     faGear,
@@ -26,6 +24,8 @@ import styles from './Header.module.scss';
 import images from '~/acsets/images';
 import AccountItem from '~/component/AccountItem';
 import Menu from '~/component/Popper/Menu';
+import { UploadIcon } from '~/component/Icons/Icons';
+import Image from '~/component/Image';
 
 const cx = classNames.bind(styles);
 
@@ -155,7 +155,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUploadAlt} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -168,7 +168,12 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img src={images.avatar} alt="User Avatar" className={cx('user-avatar')} />
+                            <Image
+                                src={images.avastar}
+                                alt="User Avatar"
+                                className={cx('user-avatar')}
+                                fallback="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png"
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
